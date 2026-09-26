@@ -1,0 +1,21 @@
+{
+  "id":"cofounders","number":"04","title":"The cross-border cofounders","subtitle":"Two owners, two locations, one classification question","archetype":"Cofounder business","region":"UK + US → Delaware","tags":["Multiple owners","Partnership","S election"],
+  "prompt":"I'm a UK citizen living in London. My cofounder lives in New York and will handle US sales. We want a 50/50 Delaware LLC for our software agency. A friend said we should elect S-corp status to save tax. Neither of us plans to take money out this year.",
+  "provided":["One founder is a UK citizen living in London","Cofounder lives in New York and will handle US sales","50/50 ownership proposed","Software agency; Delaware LLC requested","Considering S election and retaining profits"],
+  "missing":["Both founders' actual US tax residency","Work locations and contracting authority","Expected income and allocation terms","Entity election decision and ownership details","UK treatment and New York obligations"],
+  "questions":[
+    {"id":"status","question":"What are both founders' citizenship, green-card, and US travel facts?","why":"Resolve tax status before discussing S corporation eligibility.","sourceIds":["residency","scorp"]},
+    {"id":"operations","question":"What work will the New York founder do, and who can sign contracts?","why":"The US business footprint needs a fact-specific tax and state-law assessment.","sourceIds":[]},
+    {"id":"election","question":"Has any entity been formed or classification election already been filed?","why":"A multi-owner LLC generally starts with partnership classification unless an election changes it.","sourceIds":["classification"]},
+    {"id":"income","question":"What income is expected, how will it be allocated, and how will tax payments be funded?","why":"If section 1446 applies, withholding can matter even when cash is retained.","sourceIds":["partnership"]},
+    {"id":"agreement","question":"Have you agreed on contributions, decision rights, departures, and ownership of client work?","why":"A 50/50 split still requires operating and ownership arrangements.","sourceIds":[]}
+  ],
+  "concerns":[
+    {"title":"Check S election eligibility first","detail":"A nonresident alien shareholder is ineligible. Do not infer either founder's tax status from nationality or address alone.","sourceIds":["scorp","residency"],"level":"Priority"},
+    {"title":"Retaining profits may not remove withholding","detail":"If partnership income is effectively connected and allocated to a foreign partner, section 1446 withholding must be evaluated.","sourceIds":["partnership"],"level":"Priority"},
+    {"title":"Two owners change the starting point","detail":"Multi-owner domestic LLCs generally default to partnership treatment, subject to elections and exceptions.","sourceIds":["classification"],"level":"Review"}
+  ],
+  "specialists":[{"role":"US international partnership tax adviser","decision":"Determine classification, eligibility, effectively connected income, and any withholding and returns.","needs":"Residency records, projected income, allocations and US operating facts"},{"role":"US business counsel and UK tax adviser","decision":"Review operating agreement, New York requirements, and UK classification and relief.","needs":"Operating agreement, work locations, contracts and UK advice"}],
+  "takeaway":"Classification, owner status, and the location of work must be analyzed together.",
+  "intake":{"owners":"multiple","entity":"llc","usActivity":"yes","funding":"bootstrap","inventory":"no","relocation":"no","relatedBusiness":"unknown"}
+}
