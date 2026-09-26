@@ -17,5 +17,5 @@
   ],
   "specialists":[{"role":"US international partnership tax adviser","decision":"Determine classification, eligibility, effectively connected income, and any withholding and returns.","needs":"Residency records, projected income, allocations and US operating facts"},{"role":"US business counsel and UK tax adviser","decision":"Review operating agreement, New York requirements, and UK classification and relief.","needs":"Operating agreement, work locations, contracts and UK advice"}],
   "takeaway":"Classification, owner status, and the location of work must be analyzed together.",
-  "intake":{"owners":"multiple","entity":"llc","usActivity":"yes","funding":"bootstrap","inventory":"no","relocation":"no","relatedBusiness":"unknown"}
+  "intake":{"owners":"multiple","entity":"llc","usActivity":"yes","funding":"unknown","inventory":"unknown","relocation":"unknown","relatedBusiness":"unknown"}
 }

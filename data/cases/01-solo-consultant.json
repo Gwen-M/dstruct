@@ -17,5 +17,5 @@
   ],
   "specialists":[{"role":"US international tax adviser","decision":"Determine owner status, US tax exposure, reportable transactions, and filing obligations.","needs":"Travel record, operating locations, ownership and funding ledger"},{"role":"French tax adviser","decision":"Assess French classification, reporting, and management implications before choosing the structure.","needs":"Existing business records, residence facts, proposed contracts and cash flows"}],
   "takeaway":"Clarify the operating facts and reporting plan before treating a solo LLC as simple.",
-  "intake":{"owners":"one","entity":"llc","usActivity":"unknown","funding":"unknown","inventory":"no","relocation":"no","relatedBusiness":"unknown"}
+  "intake":{"owners":"one","entity":"llc","usActivity":"unknown","funding":"unknown","inventory":"unknown","relocation":"unknown","relatedBusiness":"unknown"}
 }

@@ -17,5 +17,5 @@
   ],
   "specialists":[{"role":"US startup counsel","decision":"Design the cap table, financing structure, IP chain of title, and transaction documents.","needs":"Term sheet, cap tables, existing agreements and IP assignments"},{"role":"US / India cross-border tax team","decision":"Compare restructuring routes, valuation, transfer pricing, and local approvals. No tax-neutral flip is assumed.","needs":"Entity financials, IP valuation, cash-flow plan and local-law sources"}],
   "takeaway":"The incorporation is one step inside a cross-border restructuring.",
-  "intake":{"owners":"multiple","entity":"corporation","usActivity":"unknown","funding":"vc","inventory":"no","relocation":"unknown","relatedBusiness":"yes"}
+  "intake":{"owners":"multiple","entity":"corporation","usActivity":"unknown","funding":"vc","inventory":"unknown","relocation":"unknown","relatedBusiness":"yes"}
 }
