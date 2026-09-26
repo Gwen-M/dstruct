@@ -1,0 +1,21 @@
+{
+  "id":"relocation","number":"05","title":"The founder planning a move","subtitle":"Incorporation and permission to work are separate","archetype":"Relocation","region":"Germany → Delaware + US","tags":["Immigration","Tax residency","Timing"],
+  "prompt":"I'm a German founder living in Berlin. I want a Delaware company and plan to spend six months in the US building the product and meeting investors. Can I do that on a visitor visa once I own the company? I haven't decided between an LLC and a corporation.",
+  "provided":["German founder living in Berlin","Plans about six months in the US","Activities include product development and investor meetings","Assumes ownership may permit work on visitor status","Entity type undecided"],
+  "missing":["Actual immigration status and proposed travel dates","Detailed planned activities in the US","Prior US presence and tax-residency facts","Owners, financing plans, and intended work locations","Existing German business and management arrangements"],
+  "questions":[
+    {"id":"activities","question":"What activities will you perform in the US, for whom, and under which current or proposed status?","why":"Meetings and active product work require different immigration analysis.","sourceIds":["visitor"]},
+    {"id":"dates","question":"What are the proposed travel dates and your US presence during the prior two years?","why":"Tax-residency analysis is distinct from immigration permission and is not a simple six-month rule.","sourceIds":["residency"]},
+    {"id":"fundraise","question":"Will you have cofounders or external investors, and have they specified a structure?","why":"Entity selection should follow the ownership and financing facts.","sourceIds":["classification"]},
+    {"id":"germany","question":"Will a German business, home office, team, or management role continue after the move?","why":"Local residence and company treatment require German advice.","sourceIds":[]},
+    {"id":"timing","question":"Which commitments depend on traveling, starting work, or issuing equity, and when?","why":"Identify sequencing decisions to take to counsel before commitments.","sourceIds":[]}
+  ],
+  "concerns":[
+    {"title":"Ownership does not settle work authorization","detail":"Visitor guidance distinguishes permitted business visits from employment or work. Counsel must assess the actual product-development plan.","sourceIds":["visitor"],"level":"Priority"},
+    {"title":"Tax residency needs its own timeline","detail":"Evaluate substantial presence, green-card status, exceptions, and any relevant treaty facts separately.","sourceIds":["residency"],"level":"Priority"},
+    {"title":"Entity choice remains open","detail":"Clarify owners and intended classification before preparing formation documents.","sourceIds":["classification","de-formation"],"level":"Review"}
+  ],
+  "specialists":[{"role":"US immigration counsel","decision":"Assess permitted activities, available routes, and timing before the founder works or travels.","needs":"Status documents, activity plan, travel history and financing facts"},{"role":"US / German tax advisers","decision":"Assess residence, entity classification, management, and cross-border reporting.","needs":"Day counts, residence ties, management arrangements and business records"}],
+  "takeaway":"Resolve the work and travel plan alongside the company structure.",
+  "intake":{"owners":"unknown","entity":"unknown","usActivity":"yes","funding":"unknown","inventory":"unknown","relocation":"yes","relatedBusiness":"unknown"}
+}
