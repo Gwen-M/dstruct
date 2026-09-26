@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "provenance": {"kind":"synthetic","method":"Manually authored fictional archetypes; no client records used.","representativeness":"Illustrative coverage, not statistical representativeness.","questionStatus":"Proposed questions, not an actual client exchange.","expertReview":"Not yet reviewed by a licensed specialist","createdAt":"2026-09-26"},
+  "baseline": [
+    {"id":"formation","title":"Formation and ongoing administration","detail":"Confirm a registered agent, exact entity type, and ongoing Delaware obligations. Reconcile the conflicting LLC tax amount before quoting a budget.","sourceIds":["de-formation","de-llc-tax","de-code","de-corp-tax"],"level":"Review"},
+    {"id":"boi-status","title":"Use current BOI guidance","detail":"A new Delaware-created entity falls within the domestic exemption in the current FinCEN guidance. A foreign-formed company registering in Delaware is a different scenario.","sourceIds":["boi"],"level":"Context"},
+    {"id":"home-country","title":"Home-country treatment remains unresolved","detail":"Ask local counsel to assess entity classification, management location, reporting, and any treaty position in the actual residence country. This PoC includes no country-specific opinion.","sourceIds":[],"level":"Specialist","evidenceGap":"Local-law sources and a qualified local adviser are required."}
+  ]
+}
