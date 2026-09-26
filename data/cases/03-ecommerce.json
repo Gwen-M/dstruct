@@ -1,0 +1,21 @@
+{
+  "id":"ecommerce","number":"03","title":"The cross-border seller","subtitle":"A Delaware entity with operations elsewhere","archetype":"Ecommerce","region":"Brazil → Delaware","tags":["Inventory","State nexus","Marketplaces"],
+  "prompt":"I live in Brazil and sell home accessories. I want a Delaware LLC for Amazon US and my own online store. A logistics partner will hold my inventory in California. Amazon collects sales tax, so I assume I only need to register in Delaware?",
+  "provided":["Founder lives in Brazil","Physical goods sold through Amazon and a direct store","Planned inventory held in California","Requests a Delaware LLC","Assumes marketplace tax collection covers all obligations"],
+  "missing":["Owners, tax status, and intended federal classification","Inventory ownership and fulfillment agreements","All storage locations and direct sales by state","US employees, agents, and importer arrangements","Brazilian entity ownership and tax treatment"],
+  "questions":[
+    {"id":"inventory","question":"Who owns the goods while stored, and in which states can the logistics partner place them?","why":"Inventory location is relevant to a state-by-state nexus review.","sourceIds":["ca-inventory"]},
+    {"id":"channels","question":"What sales go through a collecting marketplace versus your direct store, and where are customers located?","why":"Marketplace treatment cannot simply be extended to direct sales.","sourceIds":["ca-inventory"]},
+    {"id":"owners","question":"Who will own the LLC, and will you make any tax classification election?","why":"Identify the federal classification before assessing returns.","sourceIds":["classification"]},
+    {"id":"supply","question":"Which entity buys the goods, imports them, contracts with the warehouse, and receives sales proceeds?","why":"Collect transaction and operating facts for tax and import specialists.","sourceIds":[]},
+    {"id":"funding","question":"Will you or a related Brazilian company fund or supply the US entity?","why":"Identify related-party flows that need reporting and pricing analysis.","sourceIds":["5472","transfer-pricing"]}
+  ],
+  "concerns":[
+    {"title":"California deserves its own review","detail":"California inventory and direct sales make registration and sales-tax review relevant. Marketplace facilitator rules must be checked against each sales channel.","sourceIds":["ca-inventory"],"level":"Priority"},
+    {"title":"State and federal analyses differ","detail":"Default LLC classification establishes a starting point for federal analysis, not a resolution of state obligations.","sourceIds":["classification"],"level":"Review"},
+    {"title":"Foreign owner transactions","detail":"Owner or related-company flows may require Form 5472 analysis depending on classification and ownership.","sourceIds":["5472"],"level":"Review"}
+  ],
+  "specialists":[{"role":"US state and local tax adviser","decision":"Assess registrations, marketplace exceptions, direct-sale collection, and other state taxes separately.","needs":"Inventory reports, fulfillment contract and sales by state/channel"},{"role":"Cross-border tax and import advisers","decision":"Assess federal business exposure, related-party flows, import responsibilities, and Brazilian treatment.","needs":"Supply contracts, importer details, ownership and operating facts"}],
+  "takeaway":"Delaware formation does not contain the business's footprint to Delaware.",
+  "intake":{"owners":"unknown","entity":"llc","usActivity":"yes","funding":"unknown","inventory":"yes","relocation":"unknown","relatedBusiness":"unknown"}
+}
