@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {analyze,fields} from '../src/engine.js';
+const has=(input,id)=>analyze(input).concerns.some(c=>c.id===id);
+test('empty intake preserves every unknown and still asks residency',()=>{const r=analyze();assert.equal(r.missing.length,fields.length);assert.equal(r.concerns.length,1);assert.equal(r.concerns[0].id,'residence');});
+test('free text cannot silently become inferred facts',()=>{assert.deepEqual(analyze({prompt:'I have inventory in California and I am American'}),analyze());});
+test('invalid selections become unknown rather than triggering rules',()=>{const r=analyze({entity:'LLC',owners:1,inventory:'__proto__'});assert.equal(r.answers.entity,'unknown');assert.equal(r.answers.owners,'unknown');assert.equal(r.answers.inventory,'unknown');});
+test('single-member and partnership review are mutually exclusive',()=>{assert.ok(has({entity:'llc',owners:'one'},'single'));assert.ok(!has({entity:'llc',owners:'one'},'multi'));assert.ok(has({entity:'llc',owners:'multiple'},'multi'));assert.ok(!has({entity:'llc',owners:'unknown'},'single'));});
+test('corporation does not trigger LLC classification rules',()=>{const r=analyze({entity:'corporation',owners:'multiple'});assert.ok(r.concerns.some(c=>c.id==='corp'));assert.ok(!r.concerns.some(c=>c.id==='multi'));});
+test('S election always requests eligibility review instead of assuming citizenship',()=>{assert.ok(has({entity:'scorp'},'s-election'));});
+test('inventory, relocation and IP routes are independently activated',()=>{for(const [field,id] of [['inventory','inventory'],['relocation','travel'],['relatedBusiness','related']]){assert.ok(has({[field]:'yes'},id));assert.ok(!has({[field]:'no'},id));assert.ok(!has({[field]:'unknown'},id));}});
+test('known answers never mean legal clearance',()=>{const r=analyze({owners:'one',entity:'llc',usActivity:'no',funding:'bootstrap',inventory:'no',relocation:'no',relatedBusiness:'no'});assert.equal(r.missing.length,0);assert.equal(r.status,'Specialist review required');});
