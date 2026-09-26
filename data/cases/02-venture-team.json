@@ -1,0 +1,21 @@
+{
+  "id":"venture-team","number":"02","title":"The venture-bound team","subtitle":"A Delaware request driven by an investor conversation","archetype":"Venture startup","region":"India → Delaware","tags":["C corporation","Fundraising","Existing IP"],
+  "prompt":"We're two founders based in India building a SaaS product. A US investor asked for a Delaware C-corp before discussing a seed round. Our Indian company already owns the code and pays the developers. Can we just put the US company on top and move the IP?",
+  "provided":["Two founders based in India","An Indian company owns the code and employs developers","A prospective investor requests a Delaware C corporation","Proposed US holding structure and IP transfer"],
+  "missing":["Full ownership and tax residency of each founder","Investor's actual written requirements","Current cap table and outstanding rights","IP assignments, valuation, and existing obligations","Indian legal, tax, and foreign-exchange constraints"],
+  "questions":[
+    {"id":"ownership","question":"Who owns each existing entity and what options, convertible instruments, or consent rights exist?","why":"The reorganization must account for existing ownership and contracts.","sourceIds":[]},
+    {"id":"investor","question":"What structure has the investor actually requested, and is there a term sheet?","why":"Distinguish a confirmed transaction requirement from an informal preference.","sourceIds":[]},
+    {"id":"ip","question":"Who created and legally owns the code, and which assignments or licenses are already signed?","why":"Establish the rights available for transfer or licensing before proposing a structure.","sourceIds":[]},
+    {"id":"flows","question":"Which entity will sell, employ staff, fund development, and bear commercial risk?","why":"Map future related-party services and IP transactions for pricing analysis.","sourceIds":["transfer-pricing"]},
+    {"id":"counsel","question":"Which Indian advisers can review the restructuring, valuation, and cross-border investment rules?","why":"Local legal and tax treatment is outside this US-focused source pack.","sourceIds":[]}
+  ],
+  "concerns":[
+    {"title":"An IP transfer is a separate transaction","detail":"Related-party IP and development arrangements require pricing and documentation review; formation does not settle them.","sourceIds":["transfer-pricing"],"level":"Priority"},
+    {"title":"Foreign ownership reporting","detail":"A qualifying foreign-owned US corporation with reportable related-party transactions may have Form 5472 obligations.","sourceIds":["5472"],"level":"Review"},
+    {"title":"Budget for ongoing corporate obligations","detail":"Delaware franchise tax calculations require corporate inputs and are distinct from federal taxes.","sourceIds":["de-corp-tax"],"level":"Review"}
+  ],
+  "specialists":[{"role":"US startup counsel","decision":"Design the cap table, financing structure, IP chain of title, and transaction documents.","needs":"Term sheet, cap tables, existing agreements and IP assignments"},{"role":"US / India cross-border tax team","decision":"Compare restructuring routes, valuation, transfer pricing, and local approvals. No tax-neutral flip is assumed.","needs":"Entity financials, IP valuation, cash-flow plan and local-law sources"}],
+  "takeaway":"The incorporation is one step inside a cross-border restructuring.",
+  "intake":{"owners":"multiple","entity":"corporation","usActivity":"unknown","funding":"vc","inventory":"no","relocation":"unknown","relatedBusiness":"yes"}
+}
