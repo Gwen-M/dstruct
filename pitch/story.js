@@ -1,0 +1,19 @@
+// Public product vision. All founders and project facts are fictional.
+export const scenes = [
+  {duration:9, label:'The idea', title:'Your protocol is live.\nYour company is next.', voice:'You can build a protocol with people you have never met. But when it is time to build a company, where do you start? Meet Dstruct.'},
+  {duration:12, label:'The problem', title:'A global team.\nA legal maze.', voice:'For a web3 founder, incorporation is only the beginning. Who owns the code? Who can sign a contract? How does a shared treasury fit into the business? The questions arrive together.'},
+  {duration:12, label:'The founder', title:'Start with your story', voice:'Imagine two founders, based in France and India, building on Ethereum. They use a multisig treasury and want to raise funding. Their first question is simple: should we form a Delaware company?'},
+  {duration:15, label:'The conversation', title:'Better questions.\nA clearer starting point.', voice:'Dstruct would use AI to turn that first message into a focused conversation. Where does the team work? Who owns the intellectual property? What does the product actually do? Are tokens part of the plan? Each answer shapes the next question.'},
+  {duration:15, label:'The web3 context', title:'Connect the company\nto the onchain context', voice:'The web3 angle is the relationship between people, legal entities, and onchain activity. The workspace would bring governance and treasury context into the same review, so advisers can examine wallet control alongside ownership and authority to act for the company.'},
+  {duration:14, label:'The AI workspace', title:'A plan you can\nactually work through', voice:'AI would organize the facts into an incorporation brief, highlight open decisions, and suggest the next tasks. The founder could see what is known, what still needs an answer, and which decisions need specialist review.'},
+  {duration:13, label:'The handoff', title:'The right context\nfor the right adviser', voice:'A specialist would receive a concise brief with supporting references. Entity choice, tax exposure, and token plans remain decisions for qualified advisers. Their review would turn scattered questions into an agreed path forward.'},
+  {duration:13, label:'The privacy design', title:'Share the brief.\nChoose the audience.', voice:'The product vision keeps the working legal file private. Founders would choose the information they share with each adviser. Public wallet activity can provide context, while sensitive documents stay in the private workspace.'},
+  {duration:13, label:'The next steps', title:'Keep legal work\nmoving with the team', voice:'Once the path is agreed, the workspace would track the next steps, from ownership documents to company setup and ongoing obligations. Everyone could see who owns a task and what needs attention before the next milestone.'},
+  {duration:12, label:'The prototype', title:'The first piece\nis already here', voice:'Our working prototype explores the intake and handoff: five synthetic founder cases, linked official sources, structured questions, and exportable briefs. This walkthrough shows how that foundation could grow into a workspace for web3 founders.'},
+  {duration:8, label:'Dstruct', title:'Less legal friction.\nMore time to build.', voice:'Dstruct. An AI workspace to help web3 founders prepare, coordinate, and move their legal work forward.'},
+];
+let offset=0;
+for(const scene of scenes){scene.start=offset;offset+=scene.duration;}
+export const duration=offset;
+export function sceneAt(time){return scenes.findLast(s=>time>=s.start)||scenes[0];}
+export function captionAt(time){const s=sceneAt(time);const sentences=s.voice.match(/[^.!?]+[.!?]+/g)||[s.voice];const i=Math.min(sentences.length-1,Math.floor((time-s.start)/s.duration*sentences.length));return sentences[i].trim();}

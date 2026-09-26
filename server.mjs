@@ -4,7 +4,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {resolve,extname,sep} from 'node:path';
 
 const root=fileURLToPath(new URL('.',import.meta.url));
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8'};
+const mime={'.png':'image/png','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8'};
 export function createAppServer(){
   return createServer(async(req,res)=>{
     res.setHeader('X-Content-Type-Options','nosniff');
@@ -14,9 +14,9 @@ export function createAppServer(){
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405,{'Allow':'GET, HEAD'});res.end('Method not allowed');return;}
     try{
       const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
-      const allowed=path==='/'||path==='/index.html'||/^\/src\/[a-z-]+\.(js|css)$/.test(path)||path==='/data/sources.json'||path==='/data/common.json'||/^\/data\/cases\/[a-z0-9-]+\.json$/.test(path);
+      const allowed=path==='/'||path==='/index.html'||path==='/pitch/'||/^\/pitch\/(index\.html|player\.css|player\.js|story\.js|render\.js|prototype\.png)$/.test(path)||/^\/src\/[a-z-]+\.(js|css)$/.test(path)||path==='/data/sources.json'||path==='/data/common.json'||/^\/data\/cases\/[a-z0-9-]+\.json$/.test(path);
       if(!allowed){res.writeHead(404);res.end('Not found');return;}
-      const target=await realpath(resolve(root,'.'+(path==='/'?'/index.html':path)));
+      const target=await realpath(resolve(root,'.'+(path==='/'?'/index.html':path==='/pitch/'?'/pitch/index.html':path)));
       if(!target.startsWith(root.endsWith(sep)?root:root+sep)){res.writeHead(404);res.end('Not found');return;}
       const contents=await readFile(target);
       res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream'});
