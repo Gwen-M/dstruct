@@ -6,6 +6,7 @@ import {caseRecord,datasetJsonl,markdownBrief,download} from './export.js';
 import {escape as e} from './html.js';
 
 const main=document.querySelector('main');
+document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();main.focus();});
 let data,query='',draft={},submitted=null;
 const notes={};
 let toastTimer;
@@ -23,7 +24,7 @@ function route(){
 }
 main.addEventListener('input',event=>{
   const target=event.target;
-  if(target.id==='search'){query=target.value;route();const input=document.querySelector('#search');input.focus();}
+  if(target.id==='search'){const start=target.selectionStart,end=target.selectionEnd;query=target.value;route();const input=document.querySelector('#search');input.focus();input.setSelectionRange(start,end);}
   if(target.dataset.question){(notes[target.dataset.case]??={})[target.dataset.question]=target.value;const c=data.cases.find(c=>c.id===target.dataset.case);document.querySelector('#progress').textContent=`${c.questions.filter(q=>notes[c.id][q.id]?.trim()).length} / ${c.questions.length} practice answers`;}
   if(target.closest('#intake-form')){draft=Object.fromEntries(new FormData(document.querySelector('#intake-form')));submitted=null;document.querySelector('#intake-result').innerHTML='<div class="panel"><h2>Draft updated.</h2><p class="muted">Build the review brief to reflect your latest answers.</p></div>';}
 });
