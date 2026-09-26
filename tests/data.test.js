@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readDataset,validate} from '../scripts/validate.mjs';
+import {caseRecord,datasetJsonl,markdownBrief} from '../src/export.js';
+import {escape} from '../src/html.js';
+import {caseView,library} from '../src/views.js';
+const data=await readDataset();
+test('dataset has complete five-part cases and valid source references',()=>assert.match(validate(data),/5 cases, 25 questions/));
+test('JSONL roundtrip retains provenance and evidence for every record',()=>{const records=datasetJsonl(data).trim().split('\n').map(JSON.parse);assert.equal(records.length,5);for(const r of records){assert.equal(r.provenance.kind,'synthetic');assert.ok(r.sources.length);assert.deepEqual(r.practiceAnswers,{});}});
+test('practice answers remain separate from original fictional facts',()=>{const c=data.cases[0];const record=caseRecord(c,data,{residence:'Fictional answer'});assert.equal(record.prompt,c.prompt);assert.equal(record.practiceAnswers.residence,'Fictional answer');assert.ok(!JSON.stringify(c).includes('Fictional answer'));assert.match(markdownBrief(record),/Practice answer \(unverified\): Fictional answer/);});
+test('HTML escaping protects prompts and answer rendering',()=>{assert.equal(escape('<script>"&\''),'&lt;script&gt;&quot;&amp;&#39;');const html=caseView(data.cases[0],data,{residence:'</textarea><script>alert(1)</script>'});assert.ok(!html.includes('<script>'));assert.match(html,/&lt;script&gt;/);});
+test('empty search provides recovery text',()=>assert.match(library(data,'unmatchable-abc123'),/No cases match/));
+test('Delaware conflict remains explicit and BOI uses current source',()=>{assert.equal(data.sources.find(s=>s.id==='de-code').status,'conflict');assert.match(data.sources.find(s=>s.id==='boi').summary,/August 14, 2026/);assert.ok(data.common.baseline.some(c=>c.id==='home-country'&&c.evidenceGap));});
