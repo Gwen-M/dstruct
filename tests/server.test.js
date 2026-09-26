@@ -11,6 +11,7 @@ test('HTTP server serves app assets while protecting repository and local files'
     assert.equal((await fetch(base+'/%ZZ')).status,400);
     assert.equal((await fetch(base+'/',{method:'POST',body:'demo'})).status,405);
     const response=await fetch(base+'/data/sources.json');assert.match(response.headers.get('content-type'),/application\/json/);assert.match(response.headers.get('content-security-policy'),/connect-src 'self'/);
+    const video=await fetch(base+'/pitch/dstruct-vision.mp4',{method:'HEAD'});assert.equal(video.status,200);assert.equal(video.headers.get('content-type'),'video/mp4');
     assert.equal(await (await fetch(base+'/',{method:'HEAD'})).text(),'');
   }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
 });

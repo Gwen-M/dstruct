@@ -18,7 +18,7 @@ The product hypothesis is that advisers benefit from reviewing entity facts alon
 
 The browser player and exported MP4 run for 136 seconds. English subtitles are burned into the video and also exported as an SRT file. No voice or music is included. The `story.js` transcript and deterministic `render.js` scene renderer make copy and timing editable.
 
-[ETHGlobal Tokyo video instructions](https://ethglobal.com/events/tokyo2026/info/details) request a spoken demo and prohibit synthetic voiceovers. This silent website animation should not be represented as satisfying those instructions. The event permits submissions without a video.
+[ETHGlobal Tokyo video instructions](https://ethglobal.com/events/tokyo2026/info/details) request a spoken demo and prohibit synthetic voiceovers. The submission form requires a video with audio for Top 10 finalists. This silent website animation does not satisfy that audio requirement.
 
 ## Development attribution
 
