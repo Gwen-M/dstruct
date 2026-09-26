@@ -1,5 +1,5 @@
 import {loadData} from './data.js';
-import {library,caseView,sourceView,methodView} from './views.js';
+import {library,caseView,sourceView} from './views.js';
 import {intakeView,resultView} from './intake.js';
 import {analyze} from './engine.js';
 import {caseRecord,datasetJsonl,markdownBrief,download} from './export.js';
@@ -12,12 +12,12 @@ const notes={};
 let toastTimer;
 function notify(message){clearTimeout(toastTimer);document.querySelector('#toast').textContent=message;toastTimer=setTimeout(()=>document.querySelector('#toast').textContent='',3500);}
 function route(){
+  if(location.hash==='#method')history.replaceState(null,'','#cases');
   const path=location.hash.slice(1)||'cases';
   const section=path.startsWith('case/')?'cases':path;
   document.querySelectorAll('[data-nav]').forEach(a=>{a.classList.toggle('active',a.dataset.nav===section);if(a.dataset.nav===section)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   if(path==='cases')main.innerHTML=library(data,query);
   else if(path==='sources')main.innerHTML=sourceView(data);
-  else if(path==='method')main.innerHTML=methodView();
   else if(path==='intake'){main.innerHTML=intakeView(draft);if(submitted)document.querySelector('#intake-result').innerHTML=resultView(submitted,data);}
   else if(path.startsWith('case/')){const c=data.cases.find(c=>c.id===path.slice(5));main.innerHTML=c?caseView(c,data,notes[c.id]):'<h1>Case not found</h1><a href="#cases">Return to case library</a>';}
   else main.innerHTML='<h1>Page not found</h1><a href="#cases">Return to case library</a>';
