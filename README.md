@@ -29,4 +29,6 @@ Open **http://127.0.0.1:4173/pitch/** after `npm start` for a 2:16 animated pres
 
 The animation labels future capabilities as a product vision. The current prototype remains a deterministic intake and casebook; AI conversations, wallet integration, document permissions, and task collaboration are proposed experiences.
 
+A ready-to-use silent MP4 and SRT are included in `pitch/` and linked from the player.
+
 The editable presentation source lives in `pitch/`. An optional exporter, `scripts/render-pitch.mjs`, renders the same scenes to H.264 MP4 and SRT using `@napi-rs/canvas` and FFmpeg. Set `CANVAS_MODULE` to the canvas module path and `FFMPEG` to the encoder binary, then run `node scripts/render-pitch.mjs`. These export tools are not runtime dependencies. Static builds include the browser presentation via `node scripts/build-static.mjs`.
