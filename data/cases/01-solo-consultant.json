@@ -1,0 +1,21 @@
+{
+  "id":"solo-consultant","number":"01","title":"The remote solo founder","subtitle":"A simple LLC request with a reporting blind spot","archetype":"Remote services","region":"France → Delaware","tags":["Single founder","LLC","Foreign ownership"],
+  "prompt":"I'm a French founder living in France. I do design consulting for US clients and want a Delaware LLC to invoice in dollars. It's just me, I have no SSN, and I heard I won't have any US taxes or filings. Can you set it up this week?",
+  "provided":["Lives in France and describes themself as French","Solo design consultant with US customers","Requests a Delaware LLC and dollar invoicing","No SSN; wants to form this week","Believes there are no US taxes or filings"],
+  "missing":["US tax residency and travel history","Where services are physically performed","Any US staff, agents, office, or inventory","Owner funding and other related-party transactions","Existing business and French tax treatment"],
+  "questions":[
+    {"id":"residence","question":"Do you hold a green card, and how many days have you spent in the US over the current and prior two years?","why":"Non-US citizenship does not establish nonresident tax status.","sourceIds":["residency"]},
+    {"id":"operations","question":"Where will you perform the work, and will anyone act for the business in the US?","why":"Collect the operating facts a specialist needs to analyze US tax exposure; customer location alone is insufficient.","sourceIds":[]},
+    {"id":"funding","question":"Will you pay formation costs, contribute capital, lend money, or take money out of the LLC?","why":"Identify potentially reportable owner transactions even before revenue.","sourceIds":["5472"]},
+    {"id":"ein","question":"Who will be the responsible party, where is the principal business, and do you have an ITIN?","why":"Select an appropriate EIN application route without promising an instant online EIN.","sourceIds":["ein"]},
+    {"id":"local","question":"Do you already trade through a French business, and who advises you on French tax?","why":"The US entity's treatment in France needs local analysis before formation.","sourceIds":[]}
+  ],
+  "concerns":[
+    {"title":"No revenue does not mean no reporting","detail":"If this becomes a foreign-owned disregarded LLC with reportable owner transactions, evaluate Form 5472 and a pro forma 1120.","sourceIds":["5472"],"level":"Priority"},
+    {"title":"An LLC is not a tax conclusion","detail":"Single-owner default classification can apply, but elections and the owner's status must be checked.","sourceIds":["classification"],"level":"Review"},
+    {"title":"EIN timing is a separate workstream","detail":"No SSN does not by itself end the EIN process. Confirm the eligible application route and realistic timing.","sourceIds":["ein"],"level":"Review"}
+  ],
+  "specialists":[{"role":"US international tax adviser","decision":"Determine owner status, US tax exposure, reportable transactions, and filing obligations.","needs":"Travel record, operating locations, ownership and funding ledger"},{"role":"French tax adviser","decision":"Assess French classification, reporting, and management implications before choosing the structure.","needs":"Existing business records, residence facts, proposed contracts and cash flows"}],
+  "takeaway":"Clarify the operating facts and reporting plan before treating a solo LLC as simple.",
+  "intake":{"owners":"one","entity":"llc","usActivity":"unknown","funding":"unknown","inventory":"no","relocation":"no","relatedBusiness":"unknown"}
+}
