@@ -1,6 +1,6 @@
-# Firstbase / Delaware founder intake PoC
+# Dstruct / Delaware founder intake PoC
 
-A small, dependency-free local web application exploring how to turn a non-US founder's incorporation request into an evidence-linked intake and a specialist handoff. Firstbase is a working project name, with no affiliation to any incorporation provider.
+A small, dependency-free local web application exploring how to turn a non-US founder's incorporation request into an evidence-linked intake and a specialist handoff.
 
 ## Run
 
@@ -20,3 +20,5 @@ Browse cases, record practice answers, try structured intake, inspect the source
 The cases are invented, not deidentified client records. They are illustrative archetypes, not evidence of market frequency. Questions are proposed, not transcripts of actual conversations. Rules are transparent and deterministic; free text is preserved, not automatically interpreted. No legal conclusions, entity election, tax calculation, immigration eligibility, or filings are automated.
 
 Sources were checked on 2026-09-26. This is a dated research snapshot requiring specialist review before real use. See [methodology](docs/methodology.md), [evaluation](docs/evaluation.md), and [source notes](docs/source-notes.md).
+
+Repository: [Gwen-M/dstruct](https://github.com/Gwen-M/dstruct). See [publishing instructions](docs/publishing.md) for the resumable script that publishes each development commit in a separate, verified SSH push.
